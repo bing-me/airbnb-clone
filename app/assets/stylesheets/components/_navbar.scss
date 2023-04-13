@@ -1,6 +1,11 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: rgb(250, 250, 250);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: sticky;
+  top: 0px;
+  z-index: 9999;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +14,11 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.profile-btn {
+
+  &:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.18);
+  }
 }

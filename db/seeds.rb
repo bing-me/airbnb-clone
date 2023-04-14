@@ -48,3 +48,13 @@ booking_two = Booking.create(
   flat_id: flat_one.id
 )
 puts 'Booking creation complete'
+
+puts 'Destroying all vacancies'
+Vacancy.destroy_all
+puts 'Creating vacancies'
+vacancy_date = Date.new(2023, 5, 1)
+90.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_one.id)
+  vacancy_date += 1.day
+end
+puts 'vacancy creation complete'

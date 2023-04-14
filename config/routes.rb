@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   root to: 'flats#index'
   resources :users
   resources :flats do
-    resources :bookings, only: [:create]
+    resources :bookings
+    resources :vacancies
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

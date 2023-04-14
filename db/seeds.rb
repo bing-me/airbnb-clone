@@ -26,7 +26,8 @@ flat_one = Flat.create(
   unit_number: "",
   zipcode: "CA 95608",
   country: "USA",
-  user_id: user_one.id
+  user_id: user_one.id,
+  capacity: 2
 )
 puts 'Flat creation complete'
 

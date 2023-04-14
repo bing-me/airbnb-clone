@@ -2,16 +2,20 @@
   <div class="card-container">
     <% @flats.each do |flat| %>
       <div class="card">
-        <% if flat.photo.attached? %>
-          <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
-        <%else%>
-          <%= image_tag "./app/assets/images/placeholder_flat_image.jpg", class: "card-img-top" %>
-        <% end %>
-        <div class="card-body">
-          <h5 class="card-title"><%= link_to flat.name, flat_path(flat.id) %></h5>
-          <p class="card-text"><%= flat.country %></p>
-        </div>
+        <a href="<%= flat_path(flat.id) %>">
+          <% if flat.photo.attached? %>
+            <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+          <%else%>
+            <%= image_tag "placeholder_flat_image.jpg", class: "card-img-top" %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><b><%= flat.name %></b></h5>
+            <p class="card-text"><%= flat.country %></p>
+            <p class="card-text"><%= flat.capacity %> guest<%= "s" if (flat.capacity > 1) %></p>
+            <p class="card-price"><b>$<%= flat.price_per_night %> SGD</b> night</p>
+          </div>
+        <a>
       </div>
-  <% end %>
+    <% end %>
   </div>
 </div>

@@ -18,14 +18,14 @@ puts 'Destroying all flats'
 Flat.destroy_all
 puts 'Creating flats'
 flat_one = Flat.create(
-  name: "",
-  description: "",
-  price_per_night: "",
-  address_one: "",
+  name: "Quiet Petite Garden Retreat",
+  description: "This private studio is tucked away on the back of the property of a single family home in a quiet family friendly neighborhood across the street from Bohemian Park. Easy freeway access to business 80 and walking distance to Town and Country village with shopping, Sprouts Market, Trader Joe's, Starbucks, restaurants and CVS Pharmacy.",
+  price_per_night: "100",
+  address_one: "3543 Walnut Ave",
   address_two: "",
   unit_number: "",
-  zipcode: "",
-  country: "",
+  zipcode: "CA 95608",
+  country: "USA",
   user_id: user_one.id
 )
 puts 'Flat creation complete'

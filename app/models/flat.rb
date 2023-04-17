@@ -12,4 +12,12 @@ class Flat < ApplicationRecord
   validates :address_one, presence: true
   validates :zipcode, presence: true
   validates :country, presence: true
+
+  include PgSearch::Model
+
+  pg_search_scope :search_by_location,
+                  against: [ :name, :address_one, :zipcode, :country ],
+                  using: {
+                    tsearch: { prefix: true }
+                  }
 end

@@ -163,20 +163,20 @@ flat_twelve = Flat.create(
 )
 puts 'Flat creation complete'
 
-puts 'adding photos for flats'
-flat_one.photo.attach(io: File.open("app/assets/images/seeds/flat_one.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_two.photo.attach(io: File.open("app/assets/images/seeds/flat_two.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_three.photo.attach(io: File.open("app/assets/images/seeds/flat_three.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_four.photo.attach(io: File.open("app/assets/images/seeds/flat_four.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_five.photo.attach(io: File.open("app/assets/images/seeds/flat_five.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_six.photo.attach(io: File.open("app/assets/images/seeds/flat_six.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_seven.photo.attach(io: File.open("app/assets/images/seeds/flat_seven.jpg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_eight.photo.attach(io: File.open("app/assets/images/seeds/flat_eight.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_nine.photo.attach(io: File.open("app/assets/images/seeds/flat_nine.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_ten.photo.attach(io: File.open("app/assets/images/seeds/flat_ten.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_eleven.photo.attach(io: File.open("app/assets/images/seeds/flat_eleven.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-flat_twelve.photo.attach(io: File.open("app/assets/images/seeds/flat_twelve.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-puts 'Photos added'
+# puts 'adding photos for flats'
+# flat_one.photo.attach(io: File.open("app/assets/images/seeds/flat_one.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_two.photo.attach(io: File.open("app/assets/images/seeds/flat_two.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_three.photo.attach(io: File.open("app/assets/images/seeds/flat_three.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_four.photo.attach(io: File.open("app/assets/images/seeds/flat_four.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_five.photo.attach(io: File.open("app/assets/images/seeds/flat_five.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_six.photo.attach(io: File.open("app/assets/images/seeds/flat_six.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_seven.photo.attach(io: File.open("app/assets/images/seeds/flat_seven.jpg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_eight.photo.attach(io: File.open("app/assets/images/seeds/flat_eight.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_nine.photo.attach(io: File.open("app/assets/images/seeds/flat_nine.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_ten.photo.attach(io: File.open("app/assets/images/seeds/flat_ten.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_eleven.photo.attach(io: File.open("app/assets/images/seeds/flat_eleven.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# flat_twelve.photo.attach(io: File.open("app/assets/images/seeds/flat_twelve.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+# puts 'Photos added'
 
 puts 'Destroying all bookings'
 Booking.destroy_all
@@ -200,9 +200,11 @@ puts 'Booking creation complete'
 puts 'Destroying all vacancies'
 Vacancy.destroy_all
 puts 'Creating vacancies'
-vacancy_date = Date.new(2023, 5, 1)
-90.times do
-  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_one.id)
-  vacancy_date += 1.day
+Flat.all.each do |flat|
+  vacancy_date = Date.new(2023, 5, 1)
+  90.times do
+    Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat.id)
+    vacancy_date += 1.day
+  end
 end
 puts 'vacancy creation complete'

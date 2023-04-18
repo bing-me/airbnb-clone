@@ -25,7 +25,7 @@ flat_one = Flat.create(
   address_two: "",
   unit_number: "",
   zipcode: "CA 95608",
-  country: "USA",
+  country: "United States",
   user_id: user_one.id,
   capacity: 2
 )
@@ -39,7 +39,7 @@ flat_two = Flat.create(
   zipcode: "83352",
   country: "Indonesia",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 3
 )
 flat_three = Flat.create(
   name: "Lato Lato Resort",
@@ -51,7 +51,7 @@ flat_three = Flat.create(
   zipcode: "91308",
   country: "Malaysia",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 4
 )
 flat_four = Flat.create(
   name: "Unique Lanna Style Spa Pool Villa",
@@ -75,7 +75,7 @@ flat_five = Flat.create(
   zipcode: "Đà Nẵng 550000",
   country: "Vietnam",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 3
 )
 flat_six = Flat.create(
   name: "Charming cottage with sea view in Eco-lodge",
@@ -87,7 +87,7 @@ flat_six = Flat.create(
   zipcode: "Đ 5300 Palawan",
   country: "Philippines",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 4
 )
 flat_seven = Flat.create(
   name: "Penghu Homestay Safe Harbor - 725 Pier Triple Room",
@@ -111,7 +111,7 @@ flat_eight = Flat.create(
   zipcode: "Kochi 787-1228",
   country: "Japan",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 3
 )
 flat_nine = Flat.create(
   name: "Traditional wooden house built from pure loess and domestic pine",
@@ -123,7 +123,7 @@ flat_nine = Flat.create(
   zipcode: "Gangwon-do",
   country: "South Korea",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 4
 )
 flat_ten = Flat.create(
   name: "Cozy, Private Studio with an Incredible View!",
@@ -147,7 +147,7 @@ flat_eleven = Flat.create(
   zipcode: "96915",
   country: "Guam",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 3
 )
 flat_twelve = Flat.create(
   name: "SEAWARD 270-degree sea view big bed room",
@@ -159,7 +159,7 @@ flat_twelve = Flat.create(
   zipcode: "96940",
   country: "Palau",
   user_id: user_one.id,
-  capacity: 2
+  capacity: 4
 )
 puts 'Flat creation complete'
 
@@ -201,8 +201,8 @@ puts 'Destroying all vacancies'
 Vacancy.destroy_all
 puts 'Creating vacancies'
 Flat.all.each do |flat|
-  vacancy_date = Date.new(2023, 5, 1)
-  90.times do
+  vacancy_date = Date.new(2023, 4, 1)
+  120.times do
     Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat.id)
     vacancy_date += 1.day
   end

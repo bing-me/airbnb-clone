@@ -16,7 +16,7 @@ class Flat < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_by_location,
-                  against: [ :name, :address_one, :zipcode, :country ],
+                  against: [:name, :address_one, :zipcode, :country],
                   using: {
                     tsearch: { prefix: true }
                   }

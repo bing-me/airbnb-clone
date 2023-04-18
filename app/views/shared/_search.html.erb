@@ -1,12 +1,18 @@
 <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get">
   <div class="search-form-control" id="search-form">
-    <input class="form-control string required" type="text" name="search_query" id="search_query" />
-    <label for="start">Check-in:</label>
-    <input type="date" id="check-in" name="check-in" value=<%= Date.today %> min=<%= Date.today %> max="2030-12-31">
-    <label for="start">Check-out:</label>
-    <input type="date" id="check-out" name="check-out" value=<%= (Date.today+1) %> min=<%= Date.tomorrow %> max="2030-12-31">
-    <input type="number" id="guests" name="guests" min="1">
-    <label for="guests">Add guests:</label>
+    <%# <input type="text" id="search" name="search" class="form-control string required"> %>
+    <label for="search">Where:</br>
+    <input type="text" id="search" name="search">
+    </label>
+    <label for="check_in">Check-in:</br>
+    <input type="date" id="check_in" name="check_in" value=<%= Date.today %> min=<%= Date.today %> max="2030-12-31">
+    </label>
+    <label for="check_out">Check-out:</br>
+    <input type="date" id="check_out" name="check_out" value=<%= (Date.today+1) %> min=<%= Date.tomorrow %> max="2030-12-31">
+    </label>
+    <label for="guests">Add guests:</br>
+    <input type="number" id="guests" name="guests" value="1" min="1">
+    </label>
     <button type="submit" class="btn btn-flat">
       <i class="fas fa-search"></i> Search
     </button>

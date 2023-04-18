@@ -2,24 +2,15 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    # raise
-    if params[:search_query].present?
-      @flats = policy_scope(Flat).search_by_location(params[:search_query])
-      # @flats = Flat.where(location: params[:query])
-      @markers = @flats.geocoded.map do |flat|
-        {
-          lat: flat.latitude,
-          lng: flat.longitude
-        }
-      end
-    else
-      @flats = policy_scope(Flat)
-      @markers = @flats.geocoded.map do |flat|
-        {
-          lat: flat.latitude,
-          lng: flat.longitude
-        }
-      end
+    @flats = policy_scope(Flat)
+    @flats = @flats.search_by_location(params[:search]) if params[:search].present?
+    @flats = @flats.where("capacity >= ?", params[:guests]) if params[:guests].present?
+
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
     end
   end
 
@@ -62,6 +53,6 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:description, :price_per_night, :name, :location, :photo)
+    params.require(:flat).permit(:name, :description, :price_per_night, :address_one, :zipode, :country, :capacity, :photo)
   end
 end

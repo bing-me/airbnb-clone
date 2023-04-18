@@ -23,7 +23,7 @@
       <% if @flat.photo.attached? %>
         <%= cl_image_tag @flat.photo.key, class: "flat-main"%>
       <%else%>
-        No photo
+        <%= image_tag "placeholder_flat_image.jpg", class: "flat-main" %>
       <% end %>
     </div>
     <div class="flat-images-sub">
@@ -31,28 +31,28 @@
         <% if @flat.photo.attached? %>
           <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
         <%else%>
-          No photo
+          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub" %>
         <% end %>
       </div>
       <div class="flat-image-container">
         <% if @flat.photo.attached? %>
           <%= cl_image_tag @flat.photo.key, class: "flat-sub_two"%>
         <%else%>
-          No photo
+          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub_two" %>
         <% end %>
       </div>
       <div class="flat-image-container">
         <% if @flat.photo.attached? %>
           <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
         <%else%>
-          No photo
+          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub" %>
         <% end %>
       </div>
       <div class="flat-image-container">
         <% if @flat.photo.attached? %>
           <%= cl_image_tag @flat.photo.key, class: "flat-sub_four"%>
         <%else%>
-          No photo
+          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub_four" %>
         <% end %>
       </div>
     </div>

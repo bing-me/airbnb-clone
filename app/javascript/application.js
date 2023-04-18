@@ -2,3 +2,7 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 import "bootstrap"
+
+document.getElementById("out").addEventListener("focus", function() {
+  this.setAttribute("min", document.getElementById("in").value);
+});

@@ -4,7 +4,18 @@
       <i class="fa-brands fa-airbnb logo fs-1"></i>
       <h3 class="logo-title"> fakebnb</h3>
     <% end %>
-      <%= render "shared/search" %>
+
+    <%# render "shared/search" %>
+    <div class="search-toggle">
+      <a class="btn btn-flat" data-bs-toggle="collapse" href="#collapseOne">
+        <i class="fas fa-search"></i> Search
+      </a>
+      <div id="collapseOne" class="collapse" data-bs-parent="#accordion">
+        <div>
+          <%= render "shared/search" %>
+        </div>
+      </div>
+    </div>
 
     <div class="dropdown">
       <button class="btn profile-btn border rounded-pill" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -37,4 +48,5 @@
       </ul>
     </div>
   </div>
+
 </div>

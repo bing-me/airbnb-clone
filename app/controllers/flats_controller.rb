@@ -2,24 +2,13 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    # raise
-    if params[:search_query].present?
-      @flats = policy_scope(Flat).search_by_location(params[:search_query])
-      # @flats = Flat.where(location: params[:query])
-      @markers = @flats.geocoded.map do |flat|
-        {
-          lat: flat.latitude,
-          lng: flat.longitude
-        }
-      end
-    else
-      @flats = policy_scope(Flat)
-      @markers = @flats.geocoded.map do |flat|
-        {
-          lat: flat.latitude,
-          lng: flat.longitude
-        }
-      end
+    @flats ||= filter
+
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
     end
   end
 
@@ -62,6 +51,29 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:description, :price_per_night, :name, :location, :photo)
+    params.require(:flat).permit(:name, :description, :price_per_night, :address_one, :zipode, :country, :capacity, :photo)
+  end
+
+  def filter
+    @flats = policy_scope(Flat)
+    @flats = @flats.search_by_location(params[:search]) if params[:search].present?
+    @flats = @flats.where("capacity >= ?", params[:guests]) if params[:guests].present?
+    if params[:in].present? && params[:out].present?
+      date_array = (params[:in]..params[:out]).map(&:to_s)
+      available_flats = []
+      @flats.each do |flat|
+        unavailable_dates = []
+        date_array.each do |date|
+          unavailable_dates << date unless Vacancy.where(date: date.to_date, flat_id: flat.id, vacant: true).exists?
+        end
+        available_flats << flat if unavailable_dates.empty?
+      end
+      @Flats = available_flats
+
+      @flats
+    else
+      @flats
+    end
+    # raise
   end
 end

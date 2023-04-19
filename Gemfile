@@ -82,3 +82,4 @@ gem "pundit"
 gem "geocoder"
 gem "cloudinary"
 gem "pg_search"
+gem 'country_select'

@@ -12,7 +12,7 @@ class Flat < ApplicationRecord
   validates :country, presence: true
 
   def address
-    [zipcode, country].compact.join(', ')
+    [unit_number.presence, zipcode, country].compact.join(', ')
   end
   geocoded_by :address
   after_validation :geocode

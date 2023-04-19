@@ -29,6 +29,9 @@ flat_one = Flat.create(
   user_id: user_one.id,
   capacity: 2
 )
+sleep 1
+puts "Flat created"
+
 flat_two = Flat.create(
   name: "Coconut Garden Resort Gili Trawangan",
   description: "Nestled in acres of coconut grove near the centre of Gili Trawangan, Coconut Garden Resort is an ideal hideaway for those looking for a more tranquil and private place to stay",
@@ -41,6 +44,9 @@ flat_two = Flat.create(
   user_id: user_one.id,
   capacity: 3
 )
+sleep 1
+puts "Flat created"
+
 flat_three = Flat.create(
   name: "Lato Lato Resort",
   description: "Lato Lato is our homestay in Semporna. Located in the middle of the sea built on top of corals. You can see background of Bohey Dulang Island from here. Each chalet comes with mattress, pillows & bed-sheet, fan, blanket & towel.",
@@ -53,6 +59,9 @@ flat_three = Flat.create(
   user_id: user_one.id,
   capacity: 4
 )
+sleep 1
+puts "Flat created"
+
 flat_four = Flat.create(
   name: "Unique Lanna Style Spa Pool Villa",
   description: "This private studio is tucked away on the back of the property of a single family home in a quiet family friendly neighborhood across the street from Bohemian Park. Easy freeway access to business 80 and walking distance to Town and Country village with shopping, Sprouts Market, Trader Joe's, Starbucks, restaurants and CVS Pharmacy.",
@@ -65,6 +74,9 @@ flat_four = Flat.create(
   user_id: user_one.id,
   capacity: 2
 )
+sleep 1
+puts "Flat created"
+
 flat_five = Flat.create(
   name: "À La carte beach side Studio with pool",
   description: "The privately owned apartment is located in the building of the 4-star Alacarte Hotel Da Nang.",
@@ -77,6 +89,9 @@ flat_five = Flat.create(
   user_id: user_one.id,
   capacity: 3
 )
+sleep 1
+puts "Flat created"
+
 flat_six = Flat.create(
   name: "Charming cottage with sea view in Eco-lodge",
   description: "Discover Ocean Green, an eco-lodge surrounded by stunning views of Ulugan Bay & mountains. Relax in our 3 authentic, solar-powered cottages.",
@@ -89,6 +104,9 @@ flat_six = Flat.create(
   user_id: user_one.id,
   capacity: 4
 )
+sleep 1
+puts "Flat created"
+
 flat_seven = Flat.create(
   name: "Penghu Homestay Safe Harbor - 725 Pier Triple Room",
   description: "This room is on the 2nd floor of a homestay. It's the only room in the house that has a bathtub.",
@@ -101,6 +119,9 @@ flat_seven = Flat.create(
   user_id: user_one.id,
   capacity: 2
 )
+sleep 1
+puts "Flat created"
+
 flat_eight = Flat.create(
   name: "Tatami-Room in Shimanto Riverside Hideaway",
   description: 'Nestled in a supreme location between the limpid  "Shimanto River" and deep green forests, you will find Shimanto Riverside Hideaway which is a secluded classic Japanese house with a tranquil garden.',
@@ -113,6 +134,9 @@ flat_eight = Flat.create(
   user_id: user_one.id,
   capacity: 3
 )
+sleep 1
+puts "Flat created"
+
 flat_nine = Flat.create(
   name: "Traditional wooden house built from pure loess and domestic pine",
   description: "The Hanyard is a traditional dirt house built from pure loess + domestic pine + hanji + bamboo in a rural village and is the only accommodation in the village.",
@@ -125,6 +149,9 @@ flat_nine = Flat.create(
   user_id: user_one.id,
   capacity: 4
 )
+sleep 1
+puts "Flat created"
+
 flat_ten = Flat.create(
   name: "Cozy, Private Studio with an Incredible View!",
   description: "Just 10 minutes from Kona International Airport, this private studio is perfectly situated as the start for your Big Island adventure. The space is bright and airy with French doors that open to the lanai for an even more spacious feel.",
@@ -137,6 +164,9 @@ flat_ten = Flat.create(
   user_id: user_one.id,
   capacity: 2
 )
+sleep 1
+puts "Flat created"
+
 flat_eleven = Flat.create(
   name: "Ocean View Agat Marina Private Accommodation",
   description: "RIght next to Agat Marina, a newly renovated home decorated with a relaxing neutral color scheme. You can watch the sun and later the moon set into the ocean. Large private property with a large secluded garden at the back. Both front bedrooms have ocean views and modern reflective silicon ceilings.",
@@ -149,6 +179,9 @@ flat_eleven = Flat.create(
   user_id: user_one.id,
   capacity: 3
 )
+sleep 1
+puts "Flat created"
+
 flat_twelve = Flat.create(
   name: "SEAWARD 270-degree sea view big bed room",
   description: "Located in the center of Koror, less than 10 minutes' walk away from WCTC, the largest supermarket in the city, the apartment is in the city that is truly built on the sea surface for leisure and vacation. The apartment enjoys an excellent location to watch the sunset from the balcony of the room. The decoration style is warm, simple, exquisite and comfortable.",
@@ -161,6 +194,9 @@ flat_twelve = Flat.create(
   user_id: user_one.id,
   capacity: 4
 )
+sleep 1
+puts "Flat created"
+
 puts 'Flat creation complete'
 
 # puts 'adding photos for flats'

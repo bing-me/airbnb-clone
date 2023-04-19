@@ -25,11 +25,16 @@
     </div>
 
     <div class="step">
-      <p id="qn-title"> 3. What's the location of your house.</p>
+      <p id="qn-title"> 3. What's the address of your house.</p>
       <p id="qn-subtitle"> No worries - your address is only shared with guests after they made a reservation.</p>
 
       <div class="form-group">
-        <%= f.input :location %>
+        <%= f.input :address_one %>
+        <%= f.input :address_two %>
+        <%= f.input :unit_number %>
+        <%= f.input :zipcode %>
+        <%= f.input :country %>
+        <%= f.input :plus_code %>
       </div>
 
         <button type="button" class="previous-btn">Prev</button>

@@ -1,1 +1,63 @@
-flats#new
+<div class="d-flex justify-content-center form-container mt-5">
+  <%= simple_form_for @flat do |f| %>
+
+    <div class="step active">
+      <p id="qn-title"> 1. Let's begin. First, let's give your house a name.</p>
+      <p id="qn-subtitle"> Short names work best. Have fun with it - you can always change it later.</p>
+
+      <div class="form-group">
+        <%= f.input :name %>
+      </div>
+
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="step">
+      <p id="qn-title"> 2. Describe your house in detail. Share what makes it special.</p>
+      <p id="qn-subtitle"> Check out some of our featured homes to find inspiration.</p>
+
+      <div class="form-group">
+        <%= f.input :description %>
+      </div>
+
+      <button type="button" class="previous-btn">Prev</button>
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="step">
+      <p id="qn-title"> 3. What's the location of your house.</p>
+      <p id="qn-subtitle"> No worries - your address is only shared with guests after they made a reservation.</p>
+
+      <div class="form-group">
+        <%= f.input :location %>
+      </div>
+
+        <button type="button" class="previous-btn">Prev</button>
+        <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="step">
+      <p id="qn-title"> 4. Make your place stand out. Upload a photo of your house.</p>
+      <p id="qn-subtitle"> A picture says a thousand words.</p>
+
+      <div class="form-group">
+        <%= f.input :photo, as: :file %>
+      </div>
+
+      <button type="button" class="previous-btn">Prev</button>
+      <button type="button" class="next-btn">Next</button>
+    </div>
+
+    <div class="step">
+      <p id="qn-title"> 5. Now, set your price. Give it a daily rate.</p>
+      <p id="qn-subtitle"> A more reasonable price attracts more views.</p>
+
+      <div class="form-group">
+        <%= f.input :price_per_night %>
+      </div>
+
+      <button type="button" class="previous-btn">Prev</button>
+      <%= f.submit "Submit", class: "submit-btn" %>
+    </div>
+  <% end %>
+</div>

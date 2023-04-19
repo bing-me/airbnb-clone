@@ -1,1 +1,19 @@
-bookings#index
+<p></p>
+<p>ALL booking(s)</p>
+
+<div class="cards-container">
+<% @bookings.each do |booking| %>
+  <div class="card-product">
+    <% if booking.flat.photo.attached?%>
+      <%= cl_image_tag booking.flat.photo.key, class: "card-product-infos" %>
+      <% else %>
+      <%= image_tag "placeholder_flat_image.jpg" %>
+    <% end %>
+  <div class="card-product-infos">
+    <h2><%= booking.flat.name %> at <%= booking.flat.country %></h2>
+    <p><%= booking.user.name %></p>
+    <p><strong>From </strong><%= booking.start_date %><strong> to </strong><%= booking.end_date %></p></p>
+    </div>
+  </div>
+  <%end%>
+<div>

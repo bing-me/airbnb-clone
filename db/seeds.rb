@@ -248,11 +248,95 @@ puts 'Booking creation complete'
 puts 'Destroying all vacancies'
 Vacancy.destroy_all
 puts 'Creating vacancies'
-Flat.all.each do |flat|
-  vacancy_date = Date.new(2023, 4, 1)
-  120.times do
-    Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat.id)
-    vacancy_date += 1.day
-  end
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_one.id)
+  vacancy_date += 1.day
 end
+puts "vacancies for #{flat_one.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_two.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_two.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_three.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_three.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_four.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_four.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_five.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_five.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_six.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_six.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_seven.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_seven.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_eight.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_eight.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_nine.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_nine.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_ten.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_ten.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: false, flat_id: flat_eleven.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_eleven.country} created"
+
+vacancy_date = Date.today
+120.times do
+  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_twelve.id)
+  vacancy_date += 1.day
+end
+puts "vacancies for #{flat_twelve.country} created"
+
+
+# vacancy_date = Date.today
+# 120.times do
+#   Vacancy.create(date: vacancy_date, vacant: false, flat_id: flat_eleven.id)
+#   vacancy_date += 1.day
+# end
 puts 'vacancy creation complete'

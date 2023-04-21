@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @booking.flat = @flat
     @booking.user = current_user
 
-    authorize @booking
+    authorize @flat
 
     if @booking.save
       redirect_to user_path(current_user)

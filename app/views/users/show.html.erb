@@ -21,41 +21,25 @@
     <%end%>
   </div>
 
-  <br>
-  <p>To delete</p>
-  <div class="cards-container">
-    <% @user.flats.each do |flat| %>
-      <div class="card-product">
-        <% if flat.photo.attached?%>
-          <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
-          <% else %>
-          <%= image_tag "placeholder_flat_image.jpg" %>
-        <% end %>
-        <div class="card-product-infos">
-          <h2><%= link_to flat.name, flat_path(flat.id), class: "link" %> at <%= flat.country %></h2>
-          <p><%= link_to "Edit", edit_flat_path(flat.id) %></p>
-        </div>
-      </div>
-      <%end%>
-  </div>
-
   <% if @user.flats.exists? %>
     <br>
     <p>My listing(s)</p>
     <div class="cards-container">
       <% @user.flats.each do |flat| %>
-        <div class="card-product">
+        <div class="card-product user-show">
           <% if flat.photo.attached?%>
             <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
-            <% else %>
+          <% else %>
             <%= image_tag "placeholder_flat_image.jpg" %>
           <% end %>
           <div class="card-product-infos">
-            <h2><%= link_to flat.name, flat_path(flat.id), class: "link" %> at <%= flat.country %></h2>
+            <%# <h2><%= link_to flat.name, flat_path(flat.id), class: "link" at <%= flat.country </h2> %>
+            <h1><%= link_to flat.name, flat_path(flat.id), class: "link" %></h1>
+            <h2><%= flat.country %></h2>
             <p><%= link_to "Edit", edit_flat_path(flat.id) %></p>
           </div>
         </div>
-        <%end%>
+      <%end%>
     </div>
 
     <br>
@@ -63,28 +47,29 @@
     <div class="cards-container">
       <% @user.flats.order("created_at").each do |flat| %>
         <%flat.bookings.each do |booking|%>
-        <div class="card-product">
+          <div class="card-product user-show">
             <% if flat.photo.attached?%>
               <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
-              <% else %>
+            <% else %>
               <%= image_tag "placeholder_flat_image.jpg" %>
             <% end %>
             <div class="card-product-infos">
               <%# <div data-controller="check-box"> %>
               <%# <input type = "checkbox" id ="status-box" data-action="click->check-box#check" data-check-box-target="box"> %>
               <%# <label for="status" id="status-text"> %>
-                <% if booking.accepted == true %>
-                Accepted
-                <% else %>
-                Not Accepted <%= link_to "Accept", edit_flat_booking_path(booking.id) %>
-                <%end%>
-              </label>
-              </div>
-            <p></p>
-            <h2><%= flat.name %> at <%= flat.country %></h2>
-            <p>Booked by <strong><%= booking.user.name %></strong> from <%= booking.start_date %> to <%= booking.end_date %></p>
+              <%# </label> %>
+              <%# <% if booking.accepted == true %>
+              <%# Accepted %>
+              <%# <% else %>
+              <%# Not Accepted <%= link_to "Accept", edit_flat_booking_path(booking.id) %>
+              <%# <%end%>
+              <%# </div> %>
+              <br>
+              <h1><%= link_to flat.name, flat_path(flat.id), class: "link" %></h1>
+              <h2><%= flat.country %></h2>
+              <p>Booked by <strong><%= booking.user.name %></strong> from <%= booking.start_date %> to <%= booking.end_date %></p>
+            </div>
           </div>
-        </div>
         <% end %>
       <% end %>
     </div>

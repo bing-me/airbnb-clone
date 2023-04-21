@@ -6,6 +6,11 @@
   display: inline;
   color: #e41d57;
   font-family: monospace;
+  font-weight: 700;
+  font-size: larger;
+  margin: 0;
+  padding: 0;
+  margin-left: 2px;
 }
 
 .logo-subtitle {
@@ -13,4 +18,8 @@
   color: #e41d57;
   font-family: monospace;
   font-style: italic;
+}
+
+.logo-container {
+  display: inline;
 }

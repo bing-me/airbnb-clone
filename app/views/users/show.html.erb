@@ -9,10 +9,10 @@
       <% if flat.photo.attached?%>
         <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
         <% else %>
-        <%= image_tag "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg" %>
+        <%= image_tag "placeholder_flat_image.jpg" %>
       <% end %>
       <div class="card-product-infos">
-        <h2><%= link_to flat.name, flat_path(flat.id), class: "link" %> at <%= flat.location %></h2>
+        <h2><%= link_to flat.name, flat_path(flat.id), class: "link" %> at <%= flat.country %></h2>
         <p><%= link_to "Edit", edit_flat_path(flat.id) %></p>
       </div>
     </div>
@@ -28,22 +28,22 @@
       <% if flat.photo.attached?%>
         <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
         <% else %>
-        <%= image_tag "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg" %>
+        <%= image_tag "placeholder_flat_image.jpg" %>
       <% end %>
       <div class="card-product-infos">
-        <div data-controller="check-box">
-        <input type = "checkbox" id ="status-box" data-action="click->check-box#check" data-check-box-target="box">
-        <label for="status" id="status-text">
-            <% if booking.accepted == true %>
-            Accepted
-            <% else %>
-            Not Accepted
-            <%end%>
+        <%# <div data-controller="check-box"> %>
+        <%# <input type = "checkbox" id ="status-box" data-action="click->check-box#check" data-check-box-target="box"> %>
+        <%# <label for="status" id="status-text"> %>
+          <% if booking.accepted == true %>
+          Accepted
+          <% else %>
+          Not Accepted <%= link_to "Accept", edit_flat_booking_path(booking.id) %>
+          <%end%>
         </label>
         </div>
       <p></p>
-      <h2><%= flat.name %> at <%= flat.location %></h2>
-      <p>Booked by <strong><%= booking.customer.name %></strong> from <%= booking.start_date %> to <%= booking.end_date %></p>
+      <h2><%= flat.name %> at <%= flat.country %></h2>
+      <p>Booked by <strong><%= booking.user.name %></strong> from <%= booking.start_date %> to <%= booking.end_date %></p>
     </div>
   </div>
       <% end %>
@@ -58,10 +58,10 @@
     <% if booking.flat.photo.attached?%>
       <%= cl_image_tag booking.flat.photo.key, class: "card-product-infos" %>
       <% else %>
-      <%= image_tag "https://t3.ftcdn.net/jpg/04/62/93/66/360_F_462936689_BpEEcxfgMuYPfTaIAOC1tCDurmsno7Sp.jpg" %>
+      <%= image_tag "placeholder_flat_image.jpg" %>
     <% end %>
   <div class="card-product-infos">
-    <h2><%= booking.flat.name %> at <%= booking.flat.location %></h2>
+    <h2><%= booking.flat.name %> at <%= booking.flat.country %></h2>
     <p><strong>From </strong><%= booking.start_date %><strong> to </strong><%= booking.end_date %></p></p>
     </div>
   </div>

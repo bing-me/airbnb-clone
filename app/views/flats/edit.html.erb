@@ -1,1 +1,16 @@
-flats#edit
+<div class="mb-5 p-5">
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description %>
+    <%= f.input :price_per_night %>
+    <%= f.input :address_one %>
+    <%= f.input :address_two %>
+    <%= f.input :unit_number %>
+    <%= f.input :zipcode %>
+    <%= f.input :country %>
+    <%= f.input :plus_code %>
+    <%= f.input :capacity %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit "Update", { class: "submit-btn" } %>
+  <% end %>
+</div>

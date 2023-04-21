@@ -65,10 +65,10 @@
           Hosted by <span class="logo fw-bold"><%= @flat.user.name %></span>
         </h2>
         <p class="fs-5">
-          <%= (rand(5)+1) %> guests •
-          <%= (rand(5)+1) %> bedrooms •
-          <%= (rand(5)+1) %> beds •
-          <%= (rand(5)+1) %> bathrooms
+          <%= @flat.capacity %> guests •
+          <%= (@flat.capacity/2) %> bedrooms •
+          <%= @flat.capacity %> beds •
+          <%= @flat.capacity %> bathrooms
         </p>
         <hr style="width: 88%;">
         <p class="fs-5"><%= @flat.description %></p>

@@ -211,20 +211,20 @@ puts "Flat created"
 
 puts 'Flat creation complete'
 
-# puts 'adding photos for flats'
-# flat_one.photo.attach(io: File.open("app/assets/images/seeds/flat_one.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_two.photo.attach(io: File.open("app/assets/images/seeds/flat_two.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_three.photo.attach(io: File.open("app/assets/images/seeds/flat_three.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_four.photo.attach(io: File.open("app/assets/images/seeds/flat_four.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_five.photo.attach(io: File.open("app/assets/images/seeds/flat_five.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_six.photo.attach(io: File.open("app/assets/images/seeds/flat_six.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_seven.photo.attach(io: File.open("app/assets/images/seeds/flat_seven.jpg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_eight.photo.attach(io: File.open("app/assets/images/seeds/flat_eight.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_nine.photo.attach(io: File.open("app/assets/images/seeds/flat_nine.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_ten.photo.attach(io: File.open("app/assets/images/seeds/flat_ten.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_eleven.photo.attach(io: File.open("app/assets/images/seeds/flat_eleven.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# flat_twelve.photo.attach(io: File.open("app/assets/images/seeds/flat_twelve.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
-# puts 'Photos added'
+puts 'adding photos for flats'
+flat_one.photo.attach(io: File.open("app/assets/images/seeds/flat_one.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_two.photo.attach(io: File.open("app/assets/images/seeds/flat_two.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_three.photo.attach(io: File.open("app/assets/images/seeds/flat_three.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_four.photo.attach(io: File.open("app/assets/images/seeds/flat_four.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_five.photo.attach(io: File.open("app/assets/images/seeds/flat_five.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_six.photo.attach(io: File.open("app/assets/images/seeds/flat_six.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_seven.photo.attach(io: File.open("app/assets/images/seeds/flat_seven.jpg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_eight.photo.attach(io: File.open("app/assets/images/seeds/flat_eight.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_nine.photo.attach(io: File.open("app/assets/images/seeds/flat_nine.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_ten.photo.attach(io: File.open("app/assets/images/seeds/flat_ten.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_eleven.photo.attach(io: File.open("app/assets/images/seeds/flat_eleven.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+flat_twelve.photo.attach(io: File.open("app/assets/images/seeds/flat_twelve.jpeg"), filename: "image-#{Time.now.strftime("%s%L")}.png")
+puts 'Photos added'
 
 puts 'Destroying all bookings'
 Booking.destroy_all
@@ -265,7 +265,7 @@ puts "vacancies for #{flat_two.country} created"
 
 vacancy_date = Date.today
 120.times do
-  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_three.id)
+  Vacancy.create(date: vacancy_date, vacant: false, flat_id: flat_three.id)
   vacancy_date += 1.day
 end
 puts "vacancies for #{flat_three.country} created"
@@ -279,7 +279,7 @@ puts "vacancies for #{flat_four.country} created"
 
 vacancy_date = Date.today
 120.times do
-  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_five.id)
+  Vacancy.create(date: vacancy_date, vacant: false, flat_id: flat_five.id)
   vacancy_date += 1.day
 end
 puts "vacancies for #{flat_five.country} created"
@@ -293,7 +293,7 @@ puts "vacancies for #{flat_six.country} created"
 
 vacancy_date = Date.today
 120.times do
-  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_seven.id)
+  Vacancy.create(date: vacancy_date, vacant: false, flat_id: flat_seven.id)
   vacancy_date += 1.day
 end
 puts "vacancies for #{flat_seven.country} created"
@@ -307,7 +307,7 @@ puts "vacancies for #{flat_eight.country} created"
 
 vacancy_date = Date.today
 120.times do
-  Vacancy.create(date: vacancy_date, vacant: true, flat_id: flat_nine.id)
+  Vacancy.create(date: vacancy_date, vacant: false, flat_id: flat_nine.id)
   vacancy_date += 1.day
 end
 puts "vacancies for #{flat_nine.country} created"

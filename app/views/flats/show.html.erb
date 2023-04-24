@@ -20,11 +20,11 @@
   <!-- Display image -->
   <div class="flat-images">
     <div class="flat-image-container">
-      <%# <% if @flat.photo.attached? %>
-        <%# <%= cl_image_tag @flat.photo.key, class: "flat-main"%>
-      <%# <%else%>
+      <% if @flat.photo.attached? %>
+        <%= cl_image_tag @flat.photo.key, class: "flat-main" %>
+      <%else %>
         <%= image_tag "placeholder_flat_image.jpg", class: "flat-main" %>
-      <%# <% end %>
+      <% end %>
     </div>
     <div class="flat-images-sub">
       <div class="flat-image-container">

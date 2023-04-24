@@ -20,40 +20,40 @@
   <!-- Display image -->
   <div class="flat-images">
     <div class="flat-image-container">
-      <% if @flat.photo.attached? %>
-        <%= cl_image_tag @flat.photo.key, class: "flat-main"%>
-      <%else%>
+      <%# <% if @flat.photo.attached? %>
+        <%# <%= cl_image_tag @flat.photo.key, class: "flat-main"%>
+      <%# <%else%>
         <%= image_tag "placeholder_flat_image.jpg", class: "flat-main" %>
-      <% end %>
+      <%# <% end %>
     </div>
     <div class="flat-images-sub">
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
+        <%# <%else%>
+          <%= image_tag "interior 1.jpg", class: "flat-sub" %>
+        <%# <% end %>
       </div>
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub_two"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub_two" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub_two"%>
+        <%# <%else%>
+          <%= image_tag "interior 2.jpg", class: "flat-sub_two" %>
+        <%# <% end %>
       </div>
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
+        <%# <%else%>
+          <%= image_tag "interior 3.jpg", class: "flat-sub" %>
+        <%# <% end %>
       </div>
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub_four"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub_four" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub_four"%>
+        <%# <%else%>
+          <%= image_tag "interior 4.jpg", class: "flat-sub_four" %>
+        <%# <% end %>
       </div>
     </div>
   </div>

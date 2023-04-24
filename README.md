@@ -10,7 +10,7 @@ A clone of Airbnb, built to the minimum viable state. Certain features are parti
 
 Search by location:
 
-![alt text](./app/assets/images/readme/search_by_location.gif?raw=true)
+![alt text](./app/assets/images/readme/search_by_location3.gif?raw=true)
 
 Search by date:
 

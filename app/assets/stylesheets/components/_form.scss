@@ -59,3 +59,10 @@ button.next-btn, button.previous-btn, .submit-btn {
 button.previous-btn {
   float: left;
 }
+
+.form-spacer {
+  // margin-bottom: 40%;
+  max-width: 50%;
+  min-width: 300px;
+  margin: 0 auto 20% auto;
+}

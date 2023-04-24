@@ -21,39 +21,39 @@
   <div class="flat-images">
     <div class="flat-image-container">
       <% if @flat.photo.attached? %>
-        <%= cl_image_tag @flat.photo.key, class: "flat-main"%>
-      <%else%>
+        <%= cl_image_tag @flat.photo.key, class: "flat-main" %>
+      <%else %>
         <%= image_tag "placeholder_flat_image.jpg", class: "flat-main" %>
       <% end %>
     </div>
     <div class="flat-images-sub">
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
+        <%# <%else%>
+          <%= image_tag "interior 1.jpg", class: "flat-sub" %>
+        <%# <% end %>
       </div>
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub_two"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub_two" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub_two"%>
+        <%# <%else%>
+          <%= image_tag "interior 2.jpg", class: "flat-sub_two" %>
+        <%# <% end %>
       </div>
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub"%>
+        <%# <%else%>
+          <%= image_tag "interior 3.jpg", class: "flat-sub" %>
+        <%# <% end %>
       </div>
       <div class="flat-image-container">
-        <% if @flat.photo.attached? %>
-          <%= cl_image_tag @flat.photo.key, class: "flat-sub_four"%>
-        <%else%>
-          <%= image_tag "placeholder_flat_image.jpg", class: "flat-sub_four" %>
-        <% end %>
+        <%# <% if @flat.photo.attached? %>
+          <%# <%= cl_image_tag @flat.photo.key, class: "flat-sub_four"%>
+        <%# <%else%>
+          <%= image_tag "interior 4.jpg", class: "flat-sub_four" %>
+        <%# <% end %>
       </div>
     </div>
   </div>
@@ -65,10 +65,10 @@
           Hosted by <span class="logo fw-bold"><%= @flat.user.name %></span>
         </h2>
         <p class="fs-5">
-          <%= (rand(5)+1) %> guests •
-          <%= (rand(5)+1) %> bedrooms •
-          <%= (rand(5)+1) %> beds •
-          <%= (rand(5)+1) %> bathrooms
+          <%= @flat.capacity %> guests •
+          <%= (@flat.capacity/2) %> bedrooms •
+          <%= @flat.capacity %> beds •
+          <%= @flat.capacity %> bathrooms
         </p>
         <hr style="width: 88%;">
         <p class="fs-5"><%= @flat.description %></p>
@@ -78,8 +78,8 @@
           <div class="booking p-3">
             <h2>$<%= @flat.price_per_night %> SGD per night </h2>
             <%= simple_form_for [@flat, @booking] do |f| %>
-              <%= f.input :start_date, as: :date, html5: true %>
-              <%= f.input :end_date, as: :date, html5: true %>
+              <%= f.input :start_date, as: :date, html5: true, input_html: { min: "#{Date.today}", max: "2030-12-31", value: "#{Date.today}" } %>
+              <%= f.input :end_date, as: :date, html5: true, input_html: { min: "#{Date.today}", max: "2030-12-31", value: "#{Date.today}" } %>
               <p class="mt-2">You will be charged <strong>immediately</strong></p>
               <%= f.submit "Reserve", class: "btn booking-button fs-4 rounded-4 btn-sm", id: "form-button" %>
             <% end %>

@@ -1,69 +1,80 @@
-<br>
-<h1>Welcome, <%= @user.name %>!</h1>
+<div class="user-show-container">
+  <br>
+  <h1>Welcome, <%= @user.name %>!</h1>
 
-<br>
-<p>My listing(s)</p>
-<div class="cards-container">
-  <% @user.flats.each do |flat| %>
-    <div class="card-product">
-      <% if flat.photo.attached?%>
-        <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
+  <br>
+  <p>My reservation<%= "s" if (@user.bookings.length > 1) %></p>
+  <div class="cards-container">
+  <% @user.bookings.order("start_date").each do |booking| %>
+    <div class="card-product user-show">
+      <% if booking.flat.photo.attached?%>
+        <%= cl_image_tag booking.flat.photo.key, class: "card-product-infos" %>
         <% else %>
         <%= image_tag "placeholder_flat_image.jpg" %>
       <% end %>
       <div class="card-product-infos">
-        <h2><%= link_to flat.name, flat_path(flat.id), class: "link" %> at <%= flat.country %></h2>
-        <p><%= link_to "Edit", edit_flat_path(flat.id) %></p>
+        <h1><%= booking.flat.name %></h1>
+        <h2><%= booking.flat.country %></h2>
+        <p><strong>From </strong><%= booking.start_date %><strong> to </strong><%= booking.end_date %></p>
       </div>
     </div>
     <%end%>
-</div>
+  </div>
 
-<br>
-<p>Manage guest reservation(s)</p>
-<div class="cards-container">
-<% @user.flats.order("created_at").each do |flat| %>
-  <%flat.bookings.each do |booking|%>
-  <div class="card-product">
-      <% if flat.photo.attached?%>
-        <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
-        <% else %>
-        <%= image_tag "placeholder_flat_image.jpg" %>
-      <% end %>
-      <div class="card-product-infos">
-        <%# <div data-controller="check-box"> %>
-        <%# <input type = "checkbox" id ="status-box" data-action="click->check-box#check" data-check-box-target="box"> %>
-        <%# <label for="status" id="status-text"> %>
-          <% if booking.accepted == true %>
-          Accepted
+  <% if @user.flats.exists? %>
+    <br>
+    <p>My listing<%= "s" if (@user.flats.length > 1) %></p>
+    <div class="cards-container">
+      <% @user.flats.each do |flat| %>
+        <div class="card-product user-show">
+          <% if flat.photo.attached?%>
+            <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
           <% else %>
-          Not Accepted <%= link_to "Accept", edit_flat_booking_path(booking.id) %>
-          <%end%>
-        </label>
+            <%= image_tag "placeholder_flat_image.jpg" %>
+          <% end %>
+          <div class="card-product-infos">
+            <%# <h2><%= link_to flat.name, flat_path(flat.id), class: "link" at <%= flat.country </h2> %>
+            <h1><%= link_to flat.name, flat_path(flat.id), class: "link" %></h1>
+            <h2><%= flat.country %></h2>
+            <p><%= link_to "Edit", edit_flat_path(flat.id), class: "rounded-pill btn btn-secondary mb-3" %></p>
+          </div>
         </div>
-      <p></p>
-      <h2><%= flat.name %> at <%= flat.country %></h2>
-      <p>Booked by <strong><%= booking.user.name %></strong> from <%= booking.start_date %> to <%= booking.end_date %></p>
+      <%end%>
     </div>
-  </div>
-      <% end %>
-  <% end %>
-</div>
 
-<br>
-<p>My reservation(s)</p>
-<div class="cards-container">
-<% @user.bookings.order("start_date").each do |booking| %>
-  <div class="card-product">
-    <% if booking.flat.photo.attached?%>
-      <%= cl_image_tag booking.flat.photo.key, class: "card-product-infos" %>
-      <% else %>
-      <%= image_tag "placeholder_flat_image.jpg" %>
-    <% end %>
-  <div class="card-product-infos">
-    <h2><%= booking.flat.name %> at <%= booking.flat.country %></h2>
-    <p><strong>From </strong><%= booking.start_date %><strong> to </strong><%= booking.end_date %></p></p>
+    <br>
+    <%# <p>Manage guest reservation<%= "s" if (@user.bookings.length > 0) </p> %>
+    <p>Guest reservation<%= "s" if (@user.flats.length > 1) %></p>
+    <div class="cards-container">
+      <% @user.flats.order("created_at").each do |flat| %>
+        <%flat.bookings.each do |booking|%>
+          <div class="card-product user-show">
+            <% if flat.photo.attached?%>
+              <%= cl_image_tag flat.photo.key, class: "card-product-infos" %>
+            <% else %>
+              <%= image_tag "placeholder_flat_image.jpg" %>
+            <% end %>
+            <div class="card-product-infos">
+              <%# <div data-controller="check-box"> %>
+              <%# <input type = "checkbox" id ="status-box" data-action="click->check-box#check" data-check-box-target="box"> %>
+              <%# <label for="status" id="status-text"> %>
+              <%# </label> %>
+              <%# <% if booking.accepted == true %>
+              <%# Accepted %>
+              <%# <% else %>
+              <%# Not Accepted <%= link_to "Accept", edit_flat_booking_path(booking.id) %>
+              <%# <%end%>
+              <%# </div> %>
+              <br>
+              <h1><%= link_to flat.name, flat_path(flat.id), class: "link" %></h1>
+              <h2><%= flat.country %></h2>
+              <p>Booked by <strong><%= booking.user.name %></strong> from <%= booking.start_date %> to <%= booking.end_date %></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-  </div>
-  <%end%>
+  <% else %>
+    <p>You are not offering any locations as a host <a href="<%= new_flat_path %>" class="click-here">click here</a> to get started</p>
+  <% end %>
 </div>

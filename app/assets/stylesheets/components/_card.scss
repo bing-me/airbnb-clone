@@ -1,16 +1,18 @@
 .card-product {
   overflow: hidden;
-  height: 120px;
+  // height: 120px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin-bottom: 16px;
+  padding: 2%;
 }
 
 .card-product img {
-  height: 100%;
-  width: 120px;
+  height: auto;
+  width: 40%;
+  aspect-ratio: 4/3;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -31,6 +33,18 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.card-product-infos h1 {
+  font-size: 36px;
+}
+
+.card-product-infos h2 {
+  font-size: 24px;
+}
+
+.card-product-infos p {
+  font-size: 20px;
 }
 
 .flats-cards-container {
@@ -54,7 +68,7 @@
   // margin: 8px;
   // width: 230px;
   border: none !important;
-  max-width: 23%;
+  max-width: 350px;
   margin-bottom: 3%;
 }
 

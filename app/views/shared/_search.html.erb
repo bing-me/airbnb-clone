@@ -5,10 +5,10 @@
     <input type="text" id="search" name="search">
     </label>
     <label for="in">Check-in:</br>
-    <input type="date" id="in" name="in" value=<%= Date.today.to_s %> min=<%= Date.today.to_s %> max="2030-12-31">
+    <input type="date" id="in" name="in" value=<%= Date.today %> min=<%= Date.today %> max="2030-12-31">
     </label>
     <label for="out">Check-out:</br>
-    <input type="date" id="out" name="out" value=<%= (Date.today+1).to_s %> min=<%= Date.tomorrow.to_s %> max="2030-12-31">
+    <input type="date" id="out" name="out" value=<%= (Date.today+1) %> min=<%= Date.tomorrow %> max="2030-12-31">
     </label>
     <label for="guests">Add guests:</br>
     <input type="number" id="guests" name="guests" value="1" min="1">
@@ -18,4 +18,4 @@
     </button>
   </div>
 </form>
-<%# .utc.to_s %>
+<%# Date.today.to_s %>

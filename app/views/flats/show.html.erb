@@ -21,7 +21,8 @@
   <div class="flat-images">
     <div class="flat-image-container">
       <% if @flat.photo.attached? %>
-        <%= cl_image_tag @flat.photo.key, class: "flat-main" %>
+        <%# <%= cl_image_tag @flat.photo.key, class: "flat-main" %>
+        <%= image_tag @flat.photo, class: "flat-main" %>
       <%else %>
         <%= image_tag "placeholder_flat_image.jpg", class: "flat-main" %>
       <% end %>

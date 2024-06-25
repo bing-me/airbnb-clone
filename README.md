@@ -38,8 +38,10 @@ Search by number of guests:
 
 [Heroku Link](https://aiurbnb.herokuapp.com/) -->
 
+This app is no longer being hosted on ![Heroku](https://img.shields.io/badge/heroku-%23430098.svg?style=plastic&logo=heroku&logoColor=white). I have created instructions to the it locally.
+
 # Instructions to run this Rails App locally
-I have include all possible steps, should you already have certain parts installed, skip ahead to configurin the installations.
+I have include all possible steps, should you already have certain parts installed, skip ahead to configuring the installations.
 
 # 1. Install Ruby
 Install the full version of Ruby.

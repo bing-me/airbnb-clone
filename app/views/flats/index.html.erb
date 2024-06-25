@@ -4,7 +4,8 @@
       <div class="card">
         <a href="<%= flat_path(flat.id) %>">
           <% if flat.photo.attached? %>
-            <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+            <%# <%= cl_image_tag flat.photo.key, class: "card-img-top" %>
+            <%= image_tag flat.photo, class: "card-img-top" %>
           <%else%>
             <%= image_tag "placeholder_flat_image.jpg", class: "card-img-top" %>
           <% end %>
